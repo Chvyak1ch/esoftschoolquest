@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>новая страница</title>
+    <meta charset="UTF-8">
+    
+</head>
+<body>
+ <script>
+    let age = prompt('введи последовательность скобочек', 'сюда');
+    function isValid(s) {
+    let stack = [];
+    let brackets = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+    };
+
+    for (let i = 0; i < s.length; i++) {
+        let char = s[i];
+
+        if (brackets[char]) {
+            stack.push(brackets[char]);
+        } else {
+            if (stack.pop() !== char) {
+                return false;
+            }
+        }
+    }
+
+    return (!stack.length);
+}
+ let res = isValid(age);
+alert(res);
+</script>
+</body>
+</html>
